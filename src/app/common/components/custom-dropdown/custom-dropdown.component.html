@@ -1,0 +1,9 @@
+<select (change)="changeDropdown($event)" [disabled]="isDisabled" class="custom-select">
+    <option selected>Select</option>
+    <option
+      *ngFor="let data of dropdownData"
+      [value]="data.name"
+      [label]="data.name">
+      {{ data.name }}
+    </option>
+</select>

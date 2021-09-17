@@ -1,0 +1,39 @@
+<div class="card m20">
+    <div class="card-body">
+      <div class="card-text">
+          <div class="row">
+              <div class="col-4">
+                  <p class="float-right"> Please select region </p>
+              </div>
+              <div class="col-4 mB30">
+                <app-custom-dropdown
+                  [dropdownData]="regions"
+                  [isDisabled]="false"
+                  (valueChange)="changeRegion($event)">
+                </app-custom-dropdown>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+                <p class="float-right"> Please select country </p>
+            </div>
+            <div class="col-4 mB20">
+              <app-custom-dropdown
+                  [dropdownData]="countries"
+                  [isDisabled]="isCountryDisabled"
+                  (valueChange)="changeCountry($event)">
+                </app-custom-dropdown>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <button type="button" [disabled]="!selectedCountry" (click)="loadCountries()" class="btn btn-primary">Load countries</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <ng-container *ngIf="tableData.length>0">
+        <app-country-details [tableData]="tableData"></app-country-details>
+    </ng-container>
+  </div>
